@@ -1,4 +1,12 @@
- 
+# This is a resource for a high contrast color palette up to 18 colors. In order to use it, 
+# simply source the file and call the function get_color_list(n), where n equals the number of 
+# colors required. The colors are selected to maximize contrast for the number of samples, and
+# are returned in approximate rainbow order.   
+
+## Example:
+# source("https://github.com/jenfransson/r_resources/raw/main/code/color_list.R")
+# mycolors = get_color_list(4)
+# mycolors # returns "#9E1531" "#F9C027" "#97C13A" "#3C87EA"
 
 get_color_list = function(n){
   indeces = c(1,11,5,7,15,14,16,13,6,9,17,2,10,8,3,4,12,18)
