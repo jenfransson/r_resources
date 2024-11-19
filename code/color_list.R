@@ -29,9 +29,12 @@ showcolors = function(indeces = 1:18){
   colorscale = get_color_list(18)
   names(colorscale) = colorscale
   
+  allcolors$color = factor(allcolors$color,
+                           levels = colorscale[colorscale %in% allcolors$color])
+  
   ggplot2::ggplot(allcolors, ggplot2::aes(x = index, y = n, color = color)) + 
     ggplot2::theme(panel.background = element_blank(),
                    panel.grid = element_blank()) +
-    ggplot2::geom_point() + 
+    ggplot2::geom_point(size = 3) + 
     ggplot2::scale_color_manual(values = colorscale)
 }
