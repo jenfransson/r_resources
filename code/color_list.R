@@ -16,3 +16,22 @@ get_color_list = function(n){
     "#97C13A","#64A638","#174E3F","#43ADA8","#3C87EA","#7863A9",
     "#C9CDFF","#1C124A","#6D1C8C","#CF2561","#EC8483","#ECAFC6")[sort(indeces[1:n])]
 }
+
+
+
+showcolors = function(){
+  allcolors = do.call("rbind",lapply(1:18, function(i){
+    data.frame(n = i, index = 1:i, color = get_color_list(i))
+  }))
+  allcolors$n = factor(allcolors$n)
+  allcolors$index = factor(allcolors$index)
+  
+  colorscale = get_color_list(18)
+  names(colorscale) = colorscale
+  
+  ggplot2::ggplot(allcolors, ggplot2::aes(x = index, y = n, color = color)) + 
+    ggplot2::theme(panel.background = element_blank(),
+                   panel.grid = element_blank()) +
+    ggplot2::geom_point() + 
+    ggplot2::scale_color_manual(values = colorscale)
+}
