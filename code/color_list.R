@@ -1,6 +1,6 @@
 # This is a resource for a high contrast color palette up to 18 colors. In order to use it, 
 # simply source the file and call the function get_color_list(n), where n equals the number of 
-# colors required. The colors are selected to maximize contrast for the number of samples, and
+# colors required. The colors are selected to maximize contrast for the given n, and
 # are returned in approximate rainbow order.   
 
 ## Example:
@@ -19,7 +19,9 @@ get_color_list = function(n){
 
 
 
-showcolors = function(indeces = 1:18){
+# showcolors is a function to show all colors available through the color_list function. For each n, the returned color list is shown according to its index in the color list.
+
+showcolors = function(n = 1:18){
   allcolors = do.call("rbind",lapply(indeces, function(i){
     data.frame(n = i, index = 1:i, color = get_color_list(i))
   }))
