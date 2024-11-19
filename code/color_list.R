@@ -19,8 +19,8 @@ get_color_list = function(n){
 
 
 
-showcolors = function(){
-  allcolors = do.call("rbind",lapply(1:18, function(i){
+showcolors = function(indeces = 1:18){
+  allcolors = do.call("rbind",lapply(indeces, function(i){
     data.frame(n = i, index = 1:i, color = get_color_list(i))
   }))
   allcolors$n = factor(allcolors$n)
