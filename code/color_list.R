@@ -22,7 +22,7 @@ get_color_list = function(n){
 # showcolors is a function to show all colors available through the color_list function. For each n, the returned color list is shown according to its index in the color list.
 
 showcolors = function(n = 1:18){
-  allcolors = do.call("rbind",lapply(indeces, function(i){
+  allcolors = do.call("rbind",lapply(n, function(i){
     data.frame(n = i, index = 1:i, color = get_color_list(i))
   }))
   allcolors$n = factor(allcolors$n)
